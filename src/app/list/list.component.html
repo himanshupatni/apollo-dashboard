@@ -1,0 +1,37 @@
+
+ <input class="form-control" type="text" placeholder="Type the Number Of questions" #keyword
+ (keyup)="Search(keyword.value)" >
+ <p> {{allquestions}}</p>
+ 
+ <table class="table ">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">question Text</th>
+      <th scope="col">A</th>
+      <th scope="col">B</th>
+      <th scope="col">C</th>
+      <th scope="col">D</th>
+      <th scope="col">Correct</th>   
+      <th scope="col">Category</th>
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr *ngFor="let all of temp  "> 
+      <td >{{all.questionText}}</td>
+       <td >{{all.optionA}}</td>
+      <td >{{all.optionB}}</td>
+      <td >{{all.optionC}}</td>
+      <td >{{all.optionD}}</td>
+      <td >{{all.correctAnswer}}</td> 
+      <td >{{all.questionCategory.value}}</td> 
+      
+    </tr>
+   
+    
+  </tbody>
+
+</table>
+
