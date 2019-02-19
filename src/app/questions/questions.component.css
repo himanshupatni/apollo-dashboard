@@ -1,0 +1,86 @@
+.total
+{ font-family: 'Roboto Condensed', sans-serif;
+    background-color: #5a0bcf;
+}
+p{
+    font-size: 15px;
+}
+ .card-body
+{
+    padding: 5px;
+    border: 0px;
+}
+.total:active{
+background-color: #410d87;
+}
+.container{
+    margin-top: 25px;
+    
+}
+.hard_questions
+{
+    font-family: 'Roboto Condensed', sans-serif;
+  display: flex;
+  justify-content: flex-end;
+
+}
+.col-3
+{
+    margin-top: 9.5%;
+}
+img{
+   
+  vertical-align: middle;
+    justify-content: left;
+    justify-items: left;
+}
+.review
+{
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #d1d1d1;
+}
+.review:active{
+    background-color: #a5a2a2;
+}
+.easy
+{
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #46df66;
+}
+.easy:active{
+   background-color: #32ba4d; 
+}
+.medium
+{
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #f1e55e;
+}
+.medium:active{
+    background-color: #efde34;
+}
+.hard
+{
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #ff5e48;
+  
+}
+.hard:active{
+    background-color: #f2432b;
+}
+.card
+{
+    cursor: pointer;
+}
+.card-text
+{
+    font-size: 15px;
+    margin-bottom: 0px;
+}
+h3{
+    font-size: 40px;
+    margin-bottom: 0px;
+}
+
+.alinment{
+    
+}

@@ -1,0 +1,143 @@
+.container
+{
+    margin-top: 75px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+input:focus
+{
+    outline: none;
+}
+.horizontal_scroll
+{
+   display: flex;
+   
+   flex-wrap: unset;
+    overflow-x: scroll;
+    /* white-space: nowrap; */
+}
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background:#f2f2f2;
+}
+.showAll{
+    flex-wrap: wrap!important;
+}
+img
+{
+    border-radius: 50%;
+}
+.questionCategory
+{
+    display: flex;
+    font-family: 'Roboto Condensed', sans-serif;
+    justify-content: center;
+    font-size: 15px;
+}
+.viewAll
+{
+    border-bottom: none;
+    color: #5a0bcf;
+    text-align: right;
+   font-size: 15px;
+}
+h6
+{
+    font-family: 'Roboto Condensed', sans-serif;
+    // border: 2px solid red;
+}
+
+h3{
+    font-family: 'Roboto Condensed', sans-serif;
+    // border: 2px solid red;
+}
+.row{
+    // border: 2px solid blue;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.total
+{
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #5a0bcf
+}
+
+.hard_questions
+{
+    font-family: 'Roboto Condensed', sans-serif;
+
+  display: flex;
+  justify-content: flex-end;
+
+}
+.review
+{
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #d1d1d1;
+}
+
+.easy
+{
+    
+    font-family: 'Roboto Condensed', sans-serif;
+   color: #44e063;
+}
+.medium
+{
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #f2e458;
+}
+.hard
+{
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #fd5f49;
+  
+}
+  body{
+    background: #eee;
+}
+span{
+    font-size:15px;
+}
+
+.box{
+    padding:0px 0px;
+}
+
+.box-part{
+    background:#FFF;
+    border-radius:0;
+    padding:30px 0px;
+    margin:20px 0px;
+}
+.text{
+    margin:20px 0px;
+}
+
+.fa{
+     color:#5a0bcf
+}
+
+h3:hover{
+
+cursor: pointer;
+background-color: #f7f7f7;
+}
+h3:active
+{
+    background-color: #e2e2e2;
+}
+.box-part:hover
+{
+    cursor: pointer;
+
+
+}
+.box-part:active
+{
+    background-color: #f7f7f7;
+}
