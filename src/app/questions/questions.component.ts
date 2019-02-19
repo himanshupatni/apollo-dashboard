@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
-import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
@@ -13,7 +13,7 @@ easyQuestions:any;
 mediumQuestions:any;
 hardQuestions:any;
  
-  constructor(private apollo: Apollo) { }
+  constructor(private apollo: Apollo,private router: Router) { }//
 
   ngOnInit() {
     this.totalQuestions = this.apollo.watchQuery<any>({
@@ -45,6 +45,13 @@ hardQuestions:any;
     console.log(this.easyQuestions,this.mediumQuestions,this.hardQuestions);
     //console.log(typeof(this.totalQuestions),typeof(this.easyQuestions),typeof(this.mediumQuestions),typeof(this.hardQuestions),this.hardQuestions.valueOf());
     
+    
+  }
+  totalQuestion()
+  {
+    console.log("total question called ");
+    this.router.navigateByUrl('app-list');
+    console.log("total question called twice");
   }
 
 }

@@ -6,22 +6,19 @@
  <table class="table table-striped w-auto">
   <thead class="thead-dark">
     <tr class="table-info">
-      <th  scope="col">question Text</th>
-      <th scope="col">A</th>
-      <th scope="col">B</th>
-      <th scope="col">C</th>
-      <th scope="col">D</th>
-      <th scope="col">Correct</th>   
-      <th scope="col">Category</th>
-      <th scope="col">Edit/remove</th>
+      <th  scope="col"><b>QUESTION TEXT</b></th>
+      <th scope="col"><b>A</b></th>
+      <th scope="col"><b>B</b></th>
+      <th scope="col"><b>C</b></th>
+      <th scope="col"><b>D</b></th>
+      <th scope="col"><b>CORRECT</b></th>   
+      <th scope="col"><b>CATEGORY</b></th>
+      <th scope="col"><b>OPTIONS</b></th>
       
     </tr>
   </thead>
   <tbody>
-      
-    
 
-    
     <tr  *ngFor="let all of temp; let i = index" [attr.data-index]="i"  > 
        
       <td  id="{{ 'questionText' +i}}"  contentEditable='{{currentEditingRow==i}}'> {{all.questionText}} </td>
@@ -32,9 +29,9 @@
       <td  id="{{ 'correctAnswer' + i}}"  contentEditable='{{currentEditingRow==i}}'>{{all.correctAnswer}}</td> 
       <td  id="{{ 'questionCategory' + i }}"contentEditable='{{currentEditingRow==i}}'>{{all.questionCategory.value}}</td> 
       <td>
-          <button  (click)="edit(i)" >Edit</button>
-          <button  (click)="save(i)">Save</button>
-          <button  (click)="delete(i)">Delete</button>
+          <button  (click)="edit(i)" ><b>EDIT</b></button>
+          <button  (click)="save(i)"><b>SAVE</b></button>
+          <button  (click)="delete(i)"><b>DELETE</b></button>
 
         </td>
         </tr>
@@ -44,15 +41,4 @@
 
 </table>
 
-<!--  
-<tr *ngFor="let all of temp; let i = index" [attr.data-index]="i"> 
-    <td >{{all.questionText}}</td>
-     <td >{{all.optionA}}</td>
-    <td >{{all.optionB}}</td>
-    <td >{{all.optionC}}</td>
-    <td >{{all.optionD}}</td>
-    <td >{{all.correctAnswer}}</td> 
-    <td >{{all.questionCategory.value}}</td> 
-    <td>
-     
-  </tr> -->
+<router-outlet></router-outlet>

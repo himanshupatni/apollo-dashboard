@@ -1,3 +1,8 @@
+.row
+{
+  margin-top: 1px;
+  margin-left: -14px;
+}
 .col-4
   {
     /* border: 2px solid red;  */
@@ -84,7 +89,7 @@ background-color: #5a0bcf;
 }
 .right-border
 {
-  border-right: 2px solid #5a0bcf;
+  border-right: 3px solid #5a0bcf;
 }
 
 .btn-color

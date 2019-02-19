@@ -1,5 +1,5 @@
-import { Component, OnInit, Output,EventEmitter } from '@angular/core';
-
+import { Component, OnInit, Output,EventEmitter, ViewChild } from '@angular/core';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import{ AddQuestionComponent, NgbdModalContent} from '../add-question/add-question.component';
 @Component({
   selector: 'app-home-page',
@@ -7,13 +7,15 @@ import{ AddQuestionComponent, NgbdModalContent} from '../add-question/add-questi
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-   @Output() myEvent = new EventEmitter();
-  constructor() { }
+  @ViewChild(AddQuestionComponent) add:AddQuestionComponent;
+  // @Output() myEvent = new EventEmitter();
+  constructor(public activeModal: NgbActiveModal,private modalService: NgbModal) { }
 
   ngOnInit() {
   }
   open()
   {
-    this.myEvent.emit(null);
+    const modalRef = this.modalService.open(NgbdModalContent,{ size: 'lg' });
+    modalRef.componentInstance.name = 'World';
   }
 }
