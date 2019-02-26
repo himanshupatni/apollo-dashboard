@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
@@ -12,8 +12,11 @@ totalQuestions:any;
 easyQuestions:any;
 mediumQuestions:any;
 hardQuestions:any;
- 
-  constructor(private apollo: Apollo,private router: Router) { }//
+allCategories:any; 
+  constructor(private apollo: Apollo,private route: ActivatedRoute,
+    private router: Router) { }
+
+  
 
   ngOnInit() {
     this.totalQuestions = this.apollo.watchQuery<any>({
@@ -22,36 +25,43 @@ hardQuestions:any;
       query
       {
         
-        totalEasyQuestions
-        totalMediumQuestions
-        totalHardQuestions
+        totalEasyQuestionsCount
+        totalMediumQuestionsCount
+        totalHardQuestionsCount
+        allCategories
+        {
+          id
+          value
+          
+        }
       }
 
       `
 
     }).valueChanges.subscribe
     (  result =>{ 
-      console.log(result.data.totalEasyQuestions);
-      this.easyQuestions = result.data.totalEasyQuestions;
-      this.mediumQuestions = result.data.totalMediumQuestions;
-      this.hardQuestions = result.data.totalHardQuestions;
+      //console.log(result.data.totalEasyQuestions);
+      this.easyQuestions = result.data.totalEasyQuestionsCount;
+      this.mediumQuestions = result.data.totalMediumQuestionsCount;
+      this.hardQuestions = result.data.totalHardQuestionsCount;
+      this.totalQuestions=result.data.totalEasyQuestionsCount+result.data.totalMediumQuestionsCount+result.data.totalHardQuestionsCount;
+      this.allCategories=result.data.allCategories;
+     // console.log(this.allCategories);
+    });  
     
-      this.totalQuestions=result.data.totalEasyQuestions+result.data.totalMediumQuestions+result.data.totalHardQuestions;
-     
-      
-
-    });
-    
-    console.log(this.easyQuestions,this.mediumQuestions,this.hardQuestions);
-    //console.log(typeof(this.totalQuestions),typeof(this.easyQuestions),typeof(this.mediumQuestions),typeof(this.hardQuestions),this.hardQuestions.valueOf());
-    
-    
+   // console.log(this.allCategories);
   }
-  totalQuestion()
-  {
+  totalQuestion(){    
     console.log("total question called ");
     this.router.navigateByUrl('app-list');
     console.log("total question called twice");
   }
 
+  
+
+  Question(val){
+   
+    console.log(" question called "+ val);
+    this.router.navigate(['app-question-type-table',{type :val}]);
+  }
 }

@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-8 offset-2">
 <p class="questionCategory">
-  <b>-QUESTION CATEGORY-(28)</b>
+  <b>-QUESTION CATEGORY-{{category_hold.length}}</b>
    
 </p>
 </div>
@@ -16,206 +16,35 @@
 <div class="box">
     
   <div class=" row horizontal_scroll " [ngClass]="{'showAll':expandCategories}">
-			    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+			    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"  *ngFor="let category_name of category_hold" >
                
 					<div class="box-part text-center">
               <img src="assets/img_avatar.png" width="100px" height="100px"> 
                                 
 						<div class="title ">
-              <h6><b>HISTORY</b></h6>
-              <h3> <b> 1200 </b></h3>
+              <h6><b>{{category_name.value}}</b></h6>
+              <h3 (click)="total_Category_Question(category_name.value,category_name.count)" id=t+{{cat.id}}> <b > {{category_name.count}}</b></h3>
 						</div>
                         
 						
                         
 						<div class="row justify-content-center">
               <div class="col-3 ">
-                <a class="easy" href=""><b> 1312</b></a>
+                <p class="easy" (click)="categoryWiseQuestions(category_name.value,'E')"  id=e+{{cat.id}}><b> {{category_name.count_easy}}</b></p>
               </div>
               
               <div class="col-3 ">
-                  <a class="medium" href=""><b> 2312</b></a>
+                  <p class="medium" (click)="categoryWiseQuestions(category_name.value,'M')" id=m+{{cat.id}}><b> {{category_name.count_medium}}</b></p>
                 </div>
                 
                 <div class="col-3 ">
-                    <a class="hard" href=""><b> 3312</b></a>
+                    <p class="hard" (click)="categoryWiseQuestions(category_name.value,'H')" id=h+{{cat.id}}><b> {{category_name.count_hard}}</b></p>
                   </div>
             </div>
                         
 					 </div>
         </div>	 
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-               
-            <div class="box-part text-center">
-                <img src="assets/img_avatar.png" width="100px" height="100px"> 
-                                  
-              <div class="title">
-                <h6><b>HISTORY</b></h6>
-                <h3> <b> 12000 </b></h3>
-              </div>
-                          
-              
-                          
-              <div class="row justify-content-center">
-                <div class="col-3 ">
-                  <a class="easy" href=""><b> 1312</b></a>
-                </div>
-                
-                <div class="col-3 ">
-                    <a class="medium" href=""><b> 2312</b></a>
-                  </div>
-                
-                  <div class="col-3 ">
-                      <a class="hard" href=""><b> 3312</b></a>
-                    </div>
-              </div>
-                          
-             </div>
-          </div>	 
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-               
-              <div class="box-part text-center">
-                  <img src="assets/img_avatar.png" width="100px" height="100px"> 
-                                    
-                <div class="title">
-                  <h6><b>HISTORY</b></h6>
-                  <h3> <b> 12000 </b></h3>
-                </div>
-                            
-                
-                            
-                <div class="row justify-content-center">
-                  <div class="col-3 ">
-                    <a class="easy" href=""><b> 1312</b></a>
-                  </div>
-                
-                  <div class="col-3 ">
-                      <a class="medium" href=""><b> 2312</b></a>
-                    </div>
-                    
-                    <div class="col-3 ">
-                        <a class="hard" href=""><b> 3312</b></a>
-                      </div>
-                </div>
-                            
-               </div>
-            </div>	 
-       
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-               
-                <div class="box-part text-center">
-                    <img src="assets/img_avatar.png" width="100px" height="100px"> 
-                                      
-                  <div class="title">
-                    <h6>History</h6>
-                    <h3> <b> 12000 </b></h3>
-                  </div>
-                              
-                  
-                              
-                  <div class="row justify-content-center">
-                    <div class="col-3 ">
-                      <a class="easy" href=""><b> 1312</b></a>
-                    </div>
-                    
-                    <div class="col-3 ">
-                        <a class="medium" href=""><b> 2312</b></a>
-                      </div>
-                      
-                      <div class="col-3 ">
-                          <a class="hard" href=""><b> 3312</b></a>
-                        </div>
-                  </div>
-                              
-                 </div>
-              </div>	 
-       
-              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-               
-                  <div class="box-part text-center">
-                      <img src="assets/img_avatar.png" width="100px" height="100px"> 
-                                        
-                    <div class="title">
-                      <h6>History</h6>
-                      <h3> <b> 12000 </b></h3>
-                    </div>
-                                
-                    
-                                
-                    <div class="row justify-content-center">
-                      <div class="col-3 ">
-                        <a class="easy" href=""><b> 1312</b></a>
-                      </div>
-                      
-                      <div class="col-3 ">
-                          <a class="medium" href=""><b> 2312</b></a>
-                        </div>
-                        
-                        <div class="col-3 ">
-                            <a class="hard" href=""><b> 3312</b></a>
-                          </div>
-                    </div>
-                                
-                   </div>
-                </div>	 
-       
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-               
-                    <div class="box-part text-center">
-                        <img src="assets/img_avatar.png" width="100px" height="100px"> 
-                                          
-                      <div class="title">
-                        <h6>History</h6>
-                        <h3> <b> 12000 </b></h3>
-                      </div>
-                                  
-                      
-                                  
-                      <div class="row justify-content-center">
-                        <div class="col-3 ">
-                          <a class="easy" href=""><b> 1312</b></a>
-                        </div>
-                        
-                        <div class="col-3 ">
-                            <a class="medium" href=""><b> 2312</b></a>
-                          </div>
-                          
-                          <div class="col-3 ">
-                              <a class="hard" href=""><b> 3312</b></a>
-                            </div>
-                      </div>
-                                  
-                     </div>
-                  </div>	 
-       
-                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-               
-                      <div class="box-part text-center">
-                          <img src="assets/img_avatar.png" width="100px" height="100px"> 
-                                            
-                        <div class="title">
-                          <h6>History</h6>
-                          <h3> <b> 12000 </b></h3>
-                        </div>
-                                    
-                        
-                                    
-                        <div class="row justify-content-center">
-                          <div class="col-3 ">
-                            <a class="easy" href=""><b> 1312</b></a>
-                          </div>
-                          
-                          <div class="col-3 ">
-                              <a class="medium" href=""><b> 2312</b></a>
-                            </div>
-                            
-                            <div class="col-3 ">
-                                <a class="hard" href=""><b> 3312</b></a>
-                              </div>
-                        </div>
-                                    
-                       </div>
-                    </div>	 
+        
        
                              
         

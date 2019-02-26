@@ -4,6 +4,16 @@
   padding-left: 0px;
   padding-right: 0px;
 }
+.easy:hover{
+    cursor: pointer;
+}
+.medium:hover{
+    cursor: pointer;
+}
+.hard:hover
+{
+    cursor: pointer;
+}
 input:focus
 {
     outline: none;
@@ -131,12 +141,7 @@ h3:active
 {
     background-color: #e2e2e2;
 }
-.box-part:hover
-{
-    cursor: pointer;
 
-
-}
 .box-part:active
 {
     background-color: #f7f7f7;

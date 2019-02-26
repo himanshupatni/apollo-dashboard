@@ -1,0 +1,47 @@
+
+ <input class="form-control" type="text" placeholder="Type the Number Of questions" #keyword
+ (keyup)="Search(keyword.value)" >
+ <p> {{allquestions}}</p>
+ 
+ <table class="table table-striped w-auto">
+  <thead class="thead-dark">
+    <tr class="table-info">
+      <th  scope="col"><b>QUESTION TEXT</b></th>
+      <th scope="col"><b>A</b></th>
+      <th scope="col"><b>B</b></th>
+      <th scope="col"><b>C</b></th>
+      <th scope="col"><b>D</b></th>
+      <th scope="col"><b>CORRECT</b></th>   
+      <th scope="col"><b>CATEGORY</b></th>
+      <th scope="col"><b>OPTIONS</b></th>
+      <!-- <th scope="col"><b>DIFFICULTY LEVEL</b></th> -->
+      
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr  *ngFor="let all of temp; let i = index" [attr.data-index]="i"  > 
+       
+      <td  id="{{ 'questionText' +i}}"  contentEditable='{{currentEditingRow==i}}'> {{all.questionText}} </td>
+      <td id="{{ 'optionA' + i }}" contentEditable='{{currentEditingRow==i}}'>{{all.optionA}}</td>
+      <td  id="{{ 'optionB' + i }}" contentEditable='{{currentEditingRow==i}}'>{{all.optionB}}</td>
+      <td  id="{{ 'optionC' + i }}" contentEditable='{{currentEditingRow==i}}'>{{all.optionC}}</td>
+      <td  id="{{ 'optionD' + i }}" contentEditable='{{currentEditingRow==i}}'>{{all.optionD}}</td>
+      <td  id="{{ 'correctAnswer' + i}}"  contentEditable='{{currentEditingRow==i}}'>{{all.correctAnswer}}</td> 
+      <td  id="{{ 'questionCategory' + i }}"contentEditable='{{currentEditingRow==i}}'>{{all.questionCategory.value}}</td> 
+      
+      <td>
+          <button  (click)="edit(i)" ><b>EDIT</b></button>
+          <button  (click)="save(i)"><b>SAVE</b></button>
+          <button  (click)="delete(i)"><b>DELETE</b></button>
+
+        </td>
+        <!-- <td  id="{{ 'questionDifficulty' + i }}"contentEditable='{{currentEditingRow==i}}'>{{all.difficultyLevel.value}}</td>  -->
+        </tr>
+   
+    
+  </tbody>
+
+</table>
+
+<router-outlet></router-outlet>

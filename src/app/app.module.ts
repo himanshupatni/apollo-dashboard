@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {InMemoryCache} from 'apollo-cache-inmemory';
 import { HttpClientModule} from '@angular/common/http';
@@ -20,10 +20,16 @@ import { RouterModule, Routes } from '@angular/router';
 // import { setContext} from 'apollo-link-context';
 // import { httpHeaders } from 'apollo-angular-link-headers';
 import {ApolloLink} from 'apollo-link';
-import { DashboardComponent } from './dashboard/dashboard.component'; //concat
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { QuestionTypeTableComponent } from './question-type-table/question-type-table.component';
+import { TotalCategoryQuestionsComponent } from './total-category-questions/total-category-questions.component';
+import { DifficultyWiseCategoryQuestionsComponent } from './difficulty-wise-category-questions/difficulty-wise-category-questions.component'; //concat
 const routes: Routes = [
   { path:'' ,component: DashboardComponent},
-  { path: 'app-list', component: ListComponent }
+  { path: 'app-list', component: ListComponent },
+  {path:'app-question-type-table', component: QuestionTypeTableComponent},
+  {path: 'app-total-category-questions', component: TotalCategoryQuestionsComponent},
+  {path: 'app-difficulty-wise-category-questions', component: DifficultyWiseCategoryQuestionsComponent}
 ];
 @NgModule({
   declarations: [
@@ -35,7 +41,10 @@ const routes: Routes = [
     WritersComponent,
     AddQuestionComponent,
     NgbdModalContent,
-    DashboardComponent
+    DashboardComponent,
+    QuestionTypeTableComponent,
+    TotalCategoryQuestionsComponent,
+    DifficultyWiseCategoryQuestionsComponent
     
   ],
   imports: [

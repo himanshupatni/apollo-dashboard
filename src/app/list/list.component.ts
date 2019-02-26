@@ -1,4 +1,4 @@
-import { Component, OnInit,OnChanges ,SimpleChanges} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 @Component({
@@ -49,7 +49,7 @@ console.log(quess);
       this.allQuestions=this.apollo.watchQuery<any> ({
         query: gql `
         query {
-  allQuestions(first:7,questionText_Icontains:"${keyword}"){
+  getQuestions(first:7,questionText_Icontains:"${keyword}"){
     edges
     {
       node{
@@ -71,9 +71,9 @@ console.log(quess);
   `,
       }).valueChanges.subscribe
       (  result =>{ 
-        console.log(result.data.allQuestions.edges);
-        this.temp = result.data.allQuestions.edges.map((element)=>element.node);
-        return result.data.allQuestions.edges;
+        console.log(result.data.getQuestions.edges);
+        this.temp = result.data.getQuestions.edges.map((element)=>element.node);
+        return result.data.getQuestions.edges;
       })  
     }
   }
@@ -82,7 +82,7 @@ console.log(quess);
      this.allQuestions=this.apollo.watchQuery<any> ({
         query: gql `
         query {
-  allQuestions(first:10,sportsType_GameType:"gk"){
+  getQuestions(first:10,sportsType_GameType:"gk"){
     edges
     {
       node{
@@ -103,9 +103,9 @@ console.log(quess);
 `,
       }).valueChanges.subscribe
       (  result =>{ 
-        console.log(result.data.allQuestions.edges);
-        this.temp = result.data.allQuestions.edges.map((element)=>element.node);
-        return result.data.allQuestions.edges;
+        console.log(result.data.getQuestions.edges);
+        this.temp = result.data.getQuestions.edges.map((element)=>element.node);
+        return result.data.getQuestions.edges;
       }) 
 }
 
