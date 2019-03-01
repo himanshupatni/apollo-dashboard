@@ -66,7 +66,7 @@ Search(keyword:string)
       this.allQuestions=this.apollo.watchQuery<any> ({
         query: gql `
         query {
-  getQuestions(first:7,questionText_Icontains:"${keyword}"){
+  getQuestions(first:10,questionText_Icontains:"${keyword}"){
     edges
     {
       node{
@@ -75,6 +75,10 @@ Search(keyword:string)
         optionB
         optionC
         optionD
+        difficultyLevel
+      {
+        value
+      }
         correctAnswer
         sourceDifficultyLevel
         questionCategory{

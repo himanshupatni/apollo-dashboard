@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
-import { element } from '@angular/core/src/render3';
-import { stringify } from '@angular/core/src/render3/util';
+
 
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 @Component({
@@ -14,9 +13,11 @@ export class QuestionCategoryComponent implements OnInit {
   expandCategories =false;
   categories:any;
   cato;
+ 
   category_hold=[];
   category_hold_value=[];
   temp;
+
   i;
   category_count;
   easy=[];
@@ -24,7 +25,9 @@ export class QuestionCategoryComponent implements OnInit {
   hard=[];
 cat=[];
   constructor(private apollo: Apollo,private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router) { 
+      
+    }
   viewAll(){
          //console.log("hey");
     this.expandCategories = !this.expandCategories;
@@ -109,7 +112,7 @@ return this.cat;
   {
     console.log(categoryName);
     console.log(categoryCount);
-    this.router.navigate(['app-total-category-questions',{name :categoryName, count: categoryCount }]);
+    this.router.navigate(['app-total-category-questions',{name :categoryName, count: categoryCount}]);
   }
   categoryWiseQuestions(categoryName,categoryType)
   {

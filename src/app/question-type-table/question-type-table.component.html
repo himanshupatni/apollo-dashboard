@@ -1,8 +1,8 @@
-
+<app-home-page></app-home-page>
  <input class="form-control" type="text" placeholder="Type the Number Of questions" #keyword
  (keyup)="Search(keyword.value)" >
  <p> {{allquestions}}</p>
- 
+<!--  
  <table class="table table-striped w-auto">
   <thead class="thead-dark">
     <tr class="table-info">
@@ -14,7 +14,7 @@
       <th scope="col"><b>CORRECT</b></th>   
       <th scope="col"><b>CATEGORY</b></th>
       <th scope="col"><b>OPTIONS</b></th>
-      <!-- <th scope="col"><b>DIFFICULTY LEVEL</b></th> -->
+      <!-- <th scope="col"><b>DIFFICULTY LEVEL</b></th> 
       
     </tr>
   </thead>
@@ -36,13 +36,66 @@
           <button  (click)="delete(i)"><b>DELETE</b></button>
 
         </td>
-        <!-- <td  id="{{ 'questionDifficulty' + i }}"contentEditable='{{currentEditingRow==i}}'>
-          {{all.difficultyLevel.value}}</td>  -->
+        <!-- <td  id="{{ 'questionDifficulty' + i }}"contentEditable='{{currentEditingRow==i}}'>   {{all.difficultyLevel.value}}</td>  
         </tr>
    
     
   </tbody>
 
-</table>
+</table> -->
+
+<div class="container main_container">
+    <div class="row space" *ngFor="let all of temp">
+      <div class="col-2 take_margin">
+  <img src="" alt="No Image Found">
+      </div>
+      <div class="col-10 take_margin">
+  <div class="row">
+  <div class="col-6">
+      <p><img src="assets/ic_image.svg" alt="" height="20px" width="20px">question link</p>
+  </div>
+  <div class="col-3">
+  <img src="assets/ic_category.svg" alt=" " height="20px" width="20px"> {{all.questionCategory.value}}
+  </div>
+  
+  <div class="col-2">
+  <div class="row">
+      <div class="col-8">
+  <img src="assets/{{all.difficultyLevel.value}}.svg" alt="not-found" id="edit-save" height="20px" width="20px">
+  </div>
+    <div class="col-4">
+  <img src="assets/nikh.JPG" class="profile_picture" alt="not-found" id="edit-save" height="20px" width="20px">
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  <div class="row">
+  <div class="col">
+  <h4>{{all.questionText}}</h4>
+  </div>
+  </div>
+  <div class="row take_margin">
+    
+  <div class="col-3 option " [ngClass]="{ 'correct_option': all.correctAnswer === 'option_a'}">
+  <p class="center-value"  >{{all.optionA}}</p>
+  </div>
+  
+  <div class="col-3 option" [ngClass]="{ 'correct_option': all.correctAnswer === 'option_b'}">
+      <p class="center-value" >{{all.optionB}}</p>
+    </div>
+    
+  <div class="col-3 option" [ngClass]="{ 'correct_option': all.correctAnswer === 'option_c'}">
+      <p class="center-value" >{{all.optionC}}</p>
+    </div>
+    
+  <div class="col-3 option"  [ngClass]="{ 'correct_option': all.correctAnswer === 'option_d'}">
+      <p class="center-value">{{all.optionD}}</p>
+    </div>
+  </div>
+      </div>
+  
+    </div>
+  </div>
 
 <router-outlet></router-outlet>

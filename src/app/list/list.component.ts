@@ -58,6 +58,10 @@ console.log(quess);
         optionB
         optionC
         optionD
+        difficultyLevel
+        {
+          value
+        }
         correctAnswer
         sourceDifficultyLevel
         questionCategory{
@@ -92,6 +96,10 @@ console.log(quess);
         optionC
         optionD
         correctAnswer
+        difficultyLevel
+        {
+          value
+        }
         sourceDifficultyLevel
         questionCategory{
           value
