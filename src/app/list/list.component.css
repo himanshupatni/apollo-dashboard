@@ -8,27 +8,28 @@
 .space
 {
     background-color: white;
-    /* border: 2px solid blue; */
+    
     margin-bottom: 20px;
 }
-.col-2
+
+.form-control
 {
-    /* border: 2px solid #ff0000;   */
+    margin-top: 20px;
 }
 .option{
     border-radius: 20px;
     border: 2px solid #ff0000;  
     text-align: center;
-    /* margin:0.1rem; */
+   
 }
-.center-value
+.center_value
 {
     margin: 0.5rem;
 }
 .take_margin
 {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .profile_picture
 {

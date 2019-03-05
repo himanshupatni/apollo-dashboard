@@ -1,89 +1,82 @@
+<div class="container">
 
-   
-    
-  <div class="container">
-     
-      <div class="card-deck">
-          
-          <div class="card total" >
-           
-            <div class="card-body text-center text-light"  (click)="totalQuestion()" >
-            
-              <p class="card-text"><b> TOTAL QUESTIONS </b></p>
-              <h3 >{{totalQuestions}}</h3>
-            
-            
-          </div>
-         
-          </div>
-        
-        
-            <div class="card  review" >
-               
-              <div class="card-body text-center text-light" (click)="reviewQuestion()">
-                <div class="row">
-                <div class="col-9">
-                  <p class="card-text"><b> IN REVIEW </b></p>
-                <h3 >1200</h3>
-              </div>
-              <div class="col-3">
-                <img src="assets/ic_arrow.svg" alt=""width="20px" height="20px">
-              </div>
-              </div>
-            </div>
-          </div>
-          
-              <div class="card easy" >
-                  
-                <div class="card-body text-center text-light" (click)="Question('E')">
-                    <div class="row">
-                        <div class="col-9">
-                  <p class="card-text"><b> EASY QUESTIONS </b></p>
-                  <h3 >{{easyQuestions}}</h3>
-                </div>
-                <div class="col-3">
-                  <img src="assets/ic_arrow.svg" alt=""width="20px" height="20px">
-                </div>
-                </div>
-                </div>
-              
-            </div>
-            
-                <div class="card  medium" >
-                    
-                  <div class="card-body text-center text-light" (click)="Question('M')">
-                      <div class="row">
-                          <div class="col-9">
-                    <p class="card-text"><b>MEDIUM QUESTIONS</b>  </p>
-                    <h3 >{{mediumQuestions}}</h3>
-                  </div>
-                  <div class="col-3">
-                    <img src="assets/ic_arrow.svg" alt=""width="20px" height="20px">
-                  </div>
-                  </div>
-                  </div>
-                
-              </div>
-              
-                  <div class="card hard " >
-                     
-                    <div class="card-body text-center text-light" (click)="Question('H')">
-                        <div class="row">
-                            <div class="col-9">
-                      <p class="card-text"><b> HARD QUESTIONS</b></p>
-                      <h3 >{{hardQuestions}}</h3>
-                    </div>
-                    <div class="col-3">
-                      <img src="assets/ic_arrow.svg" alt=""width="20px" height="20px">
-                    </div>
-                    </div>
-                    </div>
-                  
-                </div>
-    
-  </div>
-  </div>
-  
-   
+  <div class="card-deck">
 
-    
+    <div class="card total">
+
+      <div class="card-body text-center text-light" (click)="totalQuestion()">
+
+        <p class="card-text"><b> TOTAL QUESTIONS </b></p>
+        <h3>{{totalQuestions}}</h3>
+
+
+      </div>
+
+    </div>
+
+
+    <div class="card  review">
+
+      <div class="card-body text-center text-light" (click)="reviewQuestion()">
+        <div class="row">
+          <div class="col-9 ">
+            <p class="card-text"><b> IN REVIEW </b></p>
+            <h3>1200</h3>
+          </div>
+          <div class="col-3">
+            <img src="assets/ic_arrow.svg" alt="" width="20px" height="20px">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card easy">
+
+      <div class="card-body text-center text-light" (click)="Question('E')">
+        <div class="row">
+          <div class="col-9">
+            <p class="card-text"><b> EASY</b></p>
+            <h3>{{easyQuestions}}</h3>
+          </div>
+          <div class="col-3">
+            <img src="assets/ic_arrow.svg" alt="" width="20px" height="20px">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card  medium">
+
+      <div class="card-body text-center text-light" (click)="Question('M')">
+        <div class="row">
+          <div class="col-9">
+            <p class="card-text"><b>MEDIUM</b> </p>
+            <h3>{{mediumQuestions}}</h3>
+          </div>
+          <div class="col-3">
+            <img src="assets/ic_arrow.svg" alt="" width="20px" height="20px">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card hard ">
+
+      <div class="card-body text-center text-light" (click)="Question('H')">
+        <div class="row">
+          <div class="col-9">
+            <p class="card-text"><b> HARD</b></p>
+            <h3>{{hardQuestions}}</h3>
+          </div>
+          <div class="col-3">
+            <img src="assets/ic_arrow.svg" alt="" width="20px" height="20px">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

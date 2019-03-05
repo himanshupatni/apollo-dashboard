@@ -42,7 +42,10 @@
     background-color: #f2f2f2;
     /* border: 2px solid brown; */
 }
-
+.form-control
+{
+    margin-top: 20px;
+}
 .space
 {
     background-color: white;
@@ -66,7 +69,7 @@
 .take_margin
 {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .profile_picture
 {

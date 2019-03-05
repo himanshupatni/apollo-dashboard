@@ -9,7 +9,7 @@ export class WritersComponent implements OnInit {
 
   myForm = new FormGroup({
     myDateDMY: new FormControl(new Date()),
-    
+
   });
   constructor() { }
 

@@ -1,15 +1,18 @@
-import { Component, OnInit , Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'ngbd-modal-content',
   templateUrl: './content.html',
   styleUrls: ['./content_set.css']
 })
-export class NgbdModalContent {
-  @Input() name;
 
-  constructor(public activeModal: NgbActiveModal) {}
-}
+export class NgbdModalContent {
+ category='category';
+ 
+  @Input() name;
+ 
+  constructor(public activeModal: NgbActiveModal) { }
+ }
 @Component({
   selector: 'app-add-question',
   templateUrl: './add-question.component.html',
@@ -17,12 +20,12 @@ export class NgbdModalContent {
 })
 export class AddQuestionComponent implements OnInit {
   @Input() name;
-  constructor(public activeModal: NgbActiveModal,private modalService: NgbModal) { }
- 
+  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal) { }
+
   ngOnInit() {
   }
   open() {
-    const modalRef = this.modalService.open(NgbdModalContent,{ size: 'lg' });
+    const modalRef = this.modalService.open(NgbdModalContent, { size: 'lg' });
     modalRef.componentInstance.name = 'World';
   }
 }

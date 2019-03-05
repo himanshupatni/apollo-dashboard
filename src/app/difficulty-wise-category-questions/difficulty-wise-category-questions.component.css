@@ -21,14 +21,14 @@
     text-align: center;
     /* margin:0.1rem; */
 }
-.center-value
+.center_value
 {
     margin: 0.5rem;
 }
 .take_margin
 {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .profile_picture
 {

@@ -12,7 +12,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class QuestionCategoryComponent implements OnInit {
   expandCategories =false;
   categories:any;
-  cato;
+  
  
   category_hold=[];
   category_hold_value=[];
@@ -67,6 +67,7 @@ cat=[];
         // });
      
       }
+      
     )
    
    }

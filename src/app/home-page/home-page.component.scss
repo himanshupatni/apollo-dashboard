@@ -4,25 +4,26 @@
 .solid {border-style: solid;}
 .button5 {border-radius: 19px;
 background-color: #620bd6;
+border: 0px;
 font-size: 15px;
 font-family: 'Roboto Condensed', sans-serif;
 }
-.button4
-{
-  border-radius: 50%;
-  margin: 2px;
-  background-color: #620bd6;
-}
+// .button4
+// {
+//   border-radius: 50%;
+//   margin: 2px;
+//   background-color: #620bd6;
+// }
 
 
-.search
-{
-  background-color: #999999;
-  border: 2px solid #999999;
-  border-radius: 12px;
+// .search
+// {
+//   background-color: white;
+//   border: 2px solid #999999;
+//   border-radius: 12px;
  
   
-}
+// }
 .profile_picture
 {
   border-radius: 50%;
@@ -31,10 +32,10 @@ font-family: 'Roboto Condensed', sans-serif;
 .searchbar{
   font-family: 'Roboto Condensed', sans-serif;
   border-radius: 12px;
-  background-color: #999999;
+  background-color: white;
   height: 30px;
   margin-left: 1px;
-  border: 0px solid #999999;
+  border: 0px solid white;
   text-decoration-color: black;
 }
 
@@ -47,4 +48,9 @@ font-family: 'Roboto Condensed', sans-serif;
 {
   display: flex;
   justify-content: flex-end;
+}
+
+.logo_click:hover
+{
+  cursor: pointer;
 }

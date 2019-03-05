@@ -1,66 +1,84 @@
-
-
 <div class="modal-body">
     <div class="row padding-questions">
-    <div class="col-4 picture-size" >
-    <img src="" alt="" height="100%" width="100%" alt="IMAGE NOT FOUND">
-    </div>
-    <div class="col-8">
-    <div class="row title ">
-    <b>Add Questions</b>
-    </div>
-    <div class="row  ">
-    <div class="col-8">
-      <input type="text" class="form-control input_width" placeholder="ADD PICTURE LINK HERE">
-    </div>
-    <div class="col-4">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           <b>CATEGORY</b> 
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#"><b>EASY</b> </a>
-            <a class="dropdown-item" href="#"><b>MEDIUM</b> </a>
-            <a class="dropdown-item" href="#"><b>HARD</b> </a>
-          </div>
-    </div>
-    
-    </div>
-    <div class="row rowMargin">
-        <div class="col">
-                <input type="text" class=" form-control type-question" placeholder="Type Your Question Here">
-    
+        <div class="col-4 picture_size">
+            <img src="assets/ic_image.svg" alt="" height="100%" width="100%" alt="IMAGE NOT FOUND">
         </div>
-      </div>
-    <div class="row rowMargin">
-        <div class="col-6">
-            <input type="text" class=" form-control correct-option" placeholder="CORRECT ANSWER">
-        </div>
-        <div class="col-6">
-            <input type="text" class=" form-control wrong-option" placeholder="WRONG ANSWER">
+        <div class="col-8">
+            <div class="row title ">
+                <b>Add Questions</b>
+            </div>
+
+            <div class="row">
+                <div class="col-7">
+                    <div class="row">
+                        <div class="col-2 col_padding image_item">
+                            <img class="" src="assets/ic_image.svg" alt="" height="20px" width="20px">
+                        </div>
+                        <div class="col-10 col_padding">
+                            <input type="text" class="input_width" placeholder="ADD PICTURE LINK HERE">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="offset-1 col-4">
+                    <div class="row">
+                        <div class="col-2 col_padding">
+                            <img src="assets/ic_category.svg" alt="" height="20px" width="20px">
+                        </div>
+                        <div class="col-8 col_padding">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown">CATEGORY</button>
+                            <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" (click)="category= 'E '" id="E" >EASY </a>
+                                <a class="dropdown-item" (click)="category = 'M '" id="M">MEDIUM </a>
+                                <a class="dropdown-item" (click)="category= 'H '" id="H">HARD </a>
+                            </div> 
+                            
+                            
+                        </div>
+                        <div class="col-2 col_padding">
+                            <img src="assets/{{category}}.svg" alt="" height="20px" width="20px">
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <input type="text" class=" form-control type-question" placeholder="Type Your Question Here">
+                </div>
+            </div>
+
+            <div class="row option_margin">
+                <div class="col-6">
+                    <input type="text" class=" form-control correct-option" placeholder="CORRECT ANSWER">
+                </div>
+                <div class="col-6">
+                    <input type="text" class=" form-control wrong-option" placeholder="WRONG ANSWER">
+                </div>
+            </div>
+            <div class="row option_margin">
+                <div class="col-6">
+                    <input type="text" class="form-control wrong-option" placeholder="WRONG ANSWER">
+                </div>
+                <div class="col-6">
+                    <input type="text" class="form-control wrong-option" placeholder="WRONG ANSWER">
+                </div>
+            </div>
+
+            <div class="row bottom_button">
+                <div class="col-6 col_padding">
+                    <button class="btn cancel_button"><b> Cancel </b></button>
+                </div>
+                <div class="col-6 col_padding">
+                    <button class="btn submit_button"> SUBMIT </button>
+                </div>
+            </div>
+
         </div>
     </div>
-    <div class=" row rowMargin">
-        <div class="col-6">
-            <input type="text" class="form-control wrong-option" placeholder="WRONG ANSWER">
-        </div>
-        <div class="col-6">
-            <input type="text" class="form-control wrong-option" placeholder="WRONG ANSWER">
-        </div>
-    </div>
-    <div class="row row-padding rowMargin">
-        <div class="col-3 right-border col-padding">
-            <button class=" btn btn-color button-width"><b> Cancel </b></button>
-        </div>
-        <div class="col-3  col-padding  ">
-            <button class=" btn  btn-color button-width">
-               <b> Delete</b>
-            </button>
-        </div>
-        <div class="col-6 col-padding">
-            <button class="btn  button-width"><b> Save Changes </b></button>
-        </div>
-    </div>
-    </div>
-    </div>
-      
-    </div>
+
+</div>

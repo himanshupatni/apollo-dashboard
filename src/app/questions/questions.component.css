@@ -26,18 +26,26 @@ background-color: #410d87;
 }
 .col-3
 {
-    margin-top: 9.5%;
+    display: flex;
+    justify-content: flex-end;
+    
+    align-items: center;
 }
-img{
+/* img{
    
   vertical-align: middle;
     justify-content: left;
     justify-items: left;
+} */
+.card
+{
+    border: 0px;
 }
 .review
 {
     font-family: 'Roboto Condensed', sans-serif;
     background-color: #d1d1d1;
+ 
 }
 .review:active{
     background-color: #a5a2a2;
@@ -53,7 +61,7 @@ img{
 .medium
 {
     font-family: 'Roboto Condensed', sans-serif;
-    background-color: #f1e55e;
+    background-color: #e7da48;
 }
 .medium:active{
     background-color: #efde34;
@@ -79,8 +87,4 @@ img{
 h3{
     font-size: 40px;
     margin-bottom: 0px;
-}
-
-.alinment{
-    
 }

@@ -1,53 +1,48 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 @Component({
-  
+
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  allQuestions:any //Observable<any>;
+  allQuestions: any //Observable<any>;
   i;
   currentEditingRow;
-  temp =[];
-  ques= {questionText:'',optionA:'',optionB:'',optionC:'',optionD:'',correctAnswer:'',questionCategory:{value:''}};
+  temp = [];
+  ques = { questionText: '', optionA: '', optionB: '', optionC: '', optionD: '', correctAnswer: '', questionCategory: { value: '' } };
   constructor(private apollo: Apollo) { }
-  save(i)
-  {
-    this.currentEditingRow=-1;
-  
-   
-  var question=document.getElementById('questionText'+i).innerHTML;
- var a=document.getElementById('optionA'+i).innerHTML;
- var b=document.getElementById('optionB'+i).innerHTML;
- var c=document.getElementById('optionC'+i).innerHTML;
- var d=document.getElementById('optionD'+i).innerHTML;
- var ans=document.getElementById('correctAnswer'+i).innerHTML;
- var cat=document.getElementById('questionCategory'+i).innerHTML;
- var  quess= {questionText:question,optionA:a,optionB:b,optionC:c,optionD:d,correctAnswer:ans,questionCategory:{value:cat}};
-//  console.log(question);
-console.log(quess);
-    
+  save(i) {
+    this.currentEditingRow = -1;
+
+
+    var question = document.getElementById('questionText' + i).innerHTML;
+    var a = document.getElementById('optionA' + i).innerHTML;
+    var b = document.getElementById('optionB' + i).innerHTML;
+    var c = document.getElementById('optionC' + i).innerHTML;
+    var d = document.getElementById('optionD' + i).innerHTML;
+    var ans = document.getElementById('correctAnswer' + i).innerHTML;
+    var cat = document.getElementById('questionCategory' + i).innerHTML;
+    var quess = { questionText: question, optionA: a, optionB: b, optionC: c, optionD: d, correctAnswer: ans, questionCategory: { value: cat } };
+    //  console.log(question);
+    console.log(quess);
+
 
   }
-  edit(i)
-{
-   this.currentEditingRow=i;
-  console.log(this.currentEditingRow);
+  edit(i) {
+    this.currentEditingRow = i;
+    console.log(this.currentEditingRow);
 
-} 
-  Search(keyword:string)
-    {
-      if(keyword=='')
-      {
-        this.ngOnInit();
-      }
-      else
-      {
-      this.allQuestions=this.apollo.watchQuery<any> ({
-        query: gql `
+  }
+  Search(keyword: string) {
+    if (keyword == '') {
+      this.ngOnInit();
+    }
+    else {
+      this.allQuestions = this.apollo.watchQuery<any>({
+        query: gql`
         query {
   getQuestions(first:7,questionText_Icontains:"${keyword}"){
     edges
@@ -74,17 +69,17 @@ console.log(quess);
   }
   `,
       }).valueChanges.subscribe
-      (  result =>{ 
-        console.log(result.data.getQuestions.edges);
-        this.temp = result.data.getQuestions.edges.map((element)=>element.node);
-        return result.data.getQuestions.edges;
-      })  
+        (result => {
+          console.log(result.data.getQuestions.edges);
+          this.temp = result.data.getQuestions.edges.map((element) => element.node);
+          return result.data.getQuestions.edges;
+        })
     }
   }
 
   ngOnInit() {
-     this.allQuestions=this.apollo.watchQuery<any> ({
-        query: gql `
+    this.allQuestions = this.apollo.watchQuery<any>({
+      query: gql`
         query {
   getQuestions(first:10,sportsType_GameType:"gk"){
     edges
@@ -109,12 +104,12 @@ console.log(quess);
     }
 }
 `,
-      }).valueChanges.subscribe
-      (  result =>{ 
+    }).valueChanges.subscribe
+      (result => {
         console.log(result.data.getQuestions.edges);
-        this.temp = result.data.getQuestions.edges.map((element)=>element.node);
+        this.temp = result.data.getQuestions.edges.map((element) => element.node);
         return result.data.getQuestions.edges;
-      }) 
-}
+      })
+  }
 
 }

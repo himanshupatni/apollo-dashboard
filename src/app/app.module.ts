@@ -29,7 +29,8 @@ const routes: Routes = [
   { path: 'app-list', component: ListComponent },
   {path:'app-question-type-table', component: QuestionTypeTableComponent},
   {path: 'app-total-category-questions', component: TotalCategoryQuestionsComponent},
-  {path: 'app-difficulty-wise-category-questions', component: DifficultyWiseCategoryQuestionsComponent}
+  {path: 'app-difficulty-wise-category-questions', component: DifficultyWiseCategoryQuestionsComponent},
+  {path:'dashboard',component:DashboardComponent}
 ];
 @NgModule({
   declarations: [

@@ -1,55 +1,60 @@
 <div class="container">
   <div class="row">
     <div class="col-8 offset-2">
-<p class="questionCategory">
-  <b>-QUESTION CATEGORY-{{category_hold.length}}</b>
-   
-</p>
-</div>
-<div class="col-2" >
+      <p class="question_category">
+        <b>QUESTION CATEGORY : {{category_hold.length}}</b>
 
-<a href="#"><p class="viewAll" (click)="viewAll()" ><b *ngIf="expandCategories">VIEW LESS </b><b *ngIf="!expandCategories">VIEW MORE </b></p>
-</a>
+      </p>
+    </div>
+    <div class="col-2">
 
-</div>
-</div>
-<div class="box">
-    
-  <div class=" row horizontal_scroll " [ngClass]="{'showAll':expandCategories}">
-			    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"  *ngFor="let category_name of category_hold" >
-               
-					<div class="box-part text-center">
-              <img src="assets/question_category/{{category_name.id}}.png" width="100px" height="100px"> 
-                                
-						<div class="title ">
-              <h6><b>{{category_name.value}}</b></h6>
-              <h3 (click)="total_Category_Question(category_name.value,category_name.count)" id=t+{{cat.id}}> <b > {{category_name.count}}</b></h3>
-						</div>
-                        
-						
-                        
-						<div class="row justify-content-center">
-              <div class="col-3 ">
-                <p class="easy" (click)="categoryWiseQuestions(category_name.value,'E')"  id=e+{{cat.id}}><b> {{category_name.count_easy}}</b></p>
-              </div>
-              
-              <div class="col-3 ">
-                  <p class="medium" (click)="categoryWiseQuestions(category_name.value,'M')" id=m+{{cat.id}}><b> {{category_name.count_medium}}</b></p>
-                </div>
-                
-                <div class="col-3 ">
-                    <p class="hard" (click)="categoryWiseQuestions(category_name.value,'H')" id=h+{{cat.id}}><b> {{category_name.count_hard}}</b></p>
-                  </div>
+      <a href="#">
+        <p class="view_all" (click)="viewAll()"><b *ngIf="expandCategories">VIEW LESS </b><b
+            *ngIf="!expandCategories">VIEW MORE </b></p>
+      </a>
+
+    </div>
+  </div>
+  <div class="box">
+
+    <div class=" row horizontal_scroll " [ngClass]="{'showAll':expandCategories}">
+      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let category_name of category_hold">
+
+        <div class="box-part text-center">
+          <img src="assets/question_category/{{category_name.id}}.png" (click)="total_Category_Question(category_name.value,category_name.count)" width="100px" height="100px">
+
+          <div class="title ">
+            <h6 (click)="total_Category_Question(category_name.value,category_name.count)"><b>{{category_name.value}}</b></h6>
+            <h3 (click)="total_Category_Question(category_name.value,category_name.count)" id=t+{{cat.id}}> <b>
+                {{category_name.count}}</b></h3>
+          </div>
+
+
+
+          <div class="row justify-content-center">
+            <div class="col-3 ">
+              <p class="easy" (click)="categoryWiseQuestions(category_name.value,'E')" id=e+{{cat.id}}><b>
+                  {{category_name.count_easy}}</b></p>
             </div>
-                        
-					 </div>
-        </div>	 
-        
-       
-                             
-        
-		</div>		
-  
-</div>
-</div>
 
+            <div class="col-3 ">
+              <p class="medium" (click)="categoryWiseQuestions(category_name.value,'M')" id=m+{{cat.id}}><b>
+                  {{category_name.count_medium}}</b></p>
+            </div>
+
+            <div class="col-3 ">
+              <p class="hard" (click)="categoryWiseQuestions(category_name.value,'H')" id=h+{{cat.id}}><b>
+                  {{category_name.count_hard}}</b></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+    </div>
+
+  </div>
+</div>

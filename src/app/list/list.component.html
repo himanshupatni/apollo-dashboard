@@ -1,10 +1,6 @@
 
  <app-home-page></app-home-page>
- <input class="form-control" type="text" placeholder="Type the Number Of questions" #keyword
- (keyup)="Search(keyword.value)" >
- <p> {{allquestions}}</p>
- 
- <!-- <table class="table table-striped w-auto">
+  <!-- <table class="table table-striped w-auto">
   <thead class="thead-dark">
     <tr class="table-info">
       <th  scope="col"><b>QUESTION TEXT</b></th>
@@ -43,17 +39,21 @@
 </table> -->
 
 <div class="container main_container">
-    <div class="row space" *ngFor="let all of temp">
+    <input class="form-control" type="text" placeholder="Search Question Here....." #keyword
+    (keyup)="Search(keyword.value)" >
+   <!-- <button class="btn"> <i class="fa fa-search" width="30px" height="30px"></i></button> -->
+    <p> {{allquestions}}</p>
+  <div class="row space" *ngFor="let all of temp">
       <div class="col-2 take_margin">
-  <img src="" alt="No Image Found">
+  <img src="assets/ic_image.svg" alt="No Image Found">
       </div>
       <div class="col-10 take_margin">
   <div class="row">
   <div class="col-6">
-      <p><img src="assets/ic_image.svg" alt="" height="20px" width="20px">question link</p>
+      <p><img src="assets/ic_image.svg" alt="" height="20px" width="20px"><b>Question Link</b></p>
   </div>
   <div class="col-3">
-  <img src="assets/ic_category.svg" alt=" " height="20px" width="20px"> {{all.questionCategory.value}}
+  <img src="assets/ic_category.svg" alt=" " height="20px" width="20px"><b>{{all.questionCategory.value}}</b> 
   </div>
   
   <div class="col-2">
@@ -76,19 +76,19 @@
   <div class="row take_margin">
     
   <div class="col-3 option " [ngClass]="{ 'correct_option': all.correctAnswer === 'option_a'}">
-  <p class="center-value"  >{{all.optionA}}</p>
+  <p class="center_value"  ><b> {{all.optionA}} </b></p>
   </div>
   
   <div class="col-3 option" [ngClass]="{ 'correct_option': all.correctAnswer === 'option_b'}">
-      <p class="center-value" >{{all.optionB}}</p>
+      <p class="center_value" ><b> {{all.optionB}} </b></p>
     </div>
     
   <div class="col-3 option" [ngClass]="{ 'correct_option': all.correctAnswer === 'option_c'}">
-      <p class="center-value" >{{all.optionC}}</p>
+      <p class="center_value" ><b>{{all.optionC}}</b></p>
     </div>
     
   <div class="col-3 option"  [ngClass]="{ 'correct_option': all.correctAnswer === 'option_d'}">
-      <p class="center-value">{{all.optionD}}</p>
+      <p class="center-_value"><b>{{all.optionD}} </b></p>
     </div>
   </div>
       </div>

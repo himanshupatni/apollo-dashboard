@@ -1,8 +1,5 @@
 
  <app-home-page></app-home-page>
- <input class="form-control" type="text" placeholder="Type the Number Of questions" #keyword
- (keyup)="Search(keyword.value)" >
- <p> {{allquestions}}</p>
 <!--  
  <table class="table table-striped w-auto">
   <thead class="thead-dark">
@@ -46,15 +43,19 @@
 </table> --> 
 
 <div class="container main_container">
+    <input class="form-control" type="text" placeholder="Type the Number Of questions" #keyword
+    (keyup)="Search(keyword.value)" >
+    <p> {{allquestions}}</p>
+   
   <div class="row space" *ngFor="let all of temp">
     <div class="col-2 take_margin">
-<img src="" alt="No Image Found">
+<img src="assets/ic_image.svg" alt="No Image Found">
     </div>
     <div class="col-10 take_margin">
 <div class="row">
 <div class="col-6">
     <p><img src="assets/ic_image.svg" alt="" height="20px" width="20px">
-question link</p>
+Question Link</p>
 </div>
 <div class="col-3">
 <p><img src="assets/ic_category.svg" alt="" height="20px" width="20px">{{all.questionCategory.value}}</p> 
@@ -80,19 +81,19 @@ question link</p>
 <div class="row take_margin">
   
 <div class="col-3 option " [ngClass]="{ 'correct_option': all.correctAnswer === 'option_a'}">
-<p class="center-value"  >{{all.optionA}}</p>
+<p class="center_value"  >{{all.optionA}}</p>
 </div>
 
 <div class="col-3 option" [ngClass]="{ 'correct_option': all.correctAnswer === 'option_b'}">
-    <p class="center-value" >{{all.optionB}}</p>
+    <p class="center_value" >{{all.optionB}}</p>
   </div>
   
 <div class="col-3 option" [ngClass]="{ 'correct_option': all.correctAnswer === 'option_c'}">
-    <p class="center-value" >{{all.optionC}}</p>
+    <p class="center_value" >{{all.optionC}}</p>
   </div>
   
 <div class="col-3 option"  [ngClass]="{ 'correct_option': all.correctAnswer === 'option_d'}">
-    <p class="center-value">{{all.optionD}}</p>
+    <p class="center_value">{{all.optionD}}</p>
   </div>
 </div>
     </div>
