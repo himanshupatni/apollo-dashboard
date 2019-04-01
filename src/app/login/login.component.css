@@ -1,9 +1,13 @@
+
 .container{
     background-color: white;
     padding: 50px;
     border-radius: 30px;
 }
-
+.center_align{
+    display: flex;
+    justify-content: center;
+}
 .container:hover{
     box-shadow: 2px 2px 2px 2px #5a09cf;
     

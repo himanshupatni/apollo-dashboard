@@ -1,10 +1,5 @@
 import { Component, EventEmitter, Output, OnInit, OnDestroy } from '@angular/core';
-import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
 import { GraphQLService } from '../graph-ql.service';
-import { Subscription } from 'rxjs';
-import {NgbDate, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
-import { query } from '@angular/core/src/render3';
 import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-login',
