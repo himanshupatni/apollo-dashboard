@@ -1,10 +1,14 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-8 offset-2">
+      
       <p class="question_category">
+         
+          
         <b>QUESTION CATEGORY : {{category_hold.length}}</b>
 
       </p>
+      <!-- <h1>{{cat.E_AnimalandPlantKingdom}}</h1> 
     </div>
     <div class="col-2">
 
@@ -18,15 +22,15 @@
   <div class="box">
 
     <div class=" row horizontal_scroll " [ngClass]="{'showAll':expandCategories}">
-      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let category_name of category_hold">
+      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let category_name of category_hold ; let i = index "  >
 
         <div class="box-part text-center">
           <img src="assets/question_category/{{category_name.id}}.png" (click)="total_Category_Question(category_name.value,category_name.count)" width="100px" height="100px">
 
           <div class="title ">
-            <h6 (click)="total_Category_Question(category_name.value,category_name.count)"><b>{{category_name.value}}</b></h6>
+            <h6 (click)="total_Category_Question(category_name.value,category_name.count)"><b>{{category_name.value  }}</b></h6>
             <h3 (click)="total_Category_Question(category_name.value,category_name.count)" id=t+{{cat.id}}> <b>
-                {{category_name.count}}</b></h3>
+                {{ category_name.value | removeSpace : cat : "" }}</b></h3>
           </div>
 
 
@@ -34,17 +38,17 @@
           <div class="row justify-content-center">
             <div class="col-3 ">
               <p class="easy" (click)="categoryWiseQuestions(category_name.value,'E')" id=e+{{cat.id}}><b>
-                  {{category_name.count_easy}}</b></p>
+                  {{ category_name.value | removeSpace : cat : "E_" }}</b></p>
             </div>
 
             <div class="col-3 ">
               <p class="medium" (click)="categoryWiseQuestions(category_name.value,'M')" id=m+{{cat.id}}><b>
-                  {{category_name.count_medium}}</b></p>
+                  {{ category_name.value | removeSpace : cat : "M_" }}</b></p>
             </div>
 
             <div class="col-3 ">
               <p class="hard" (click)="categoryWiseQuestions(category_name.value,'H')" id=h+{{cat.id}}><b>
-                  {{category_name.count_hard}}</b></p>
+                  {{ category_name.value | removeSpace : cat : "H_" }}</b></p>
             </div>
           </div>
 
@@ -57,4 +61,76 @@
     </div>
 
   </div>
+</div> -->
+
+<!-- <div class="container " *ngIf="hide">
+  <table class="table" id="table" borderless="true" matSort (matSortChange)="sortData($event)">
+    <thead>
+      <tr class="column">
+        <th scope="col" class="category_style" mat-sort-header="name"> ALL CATEGORIES </th>
+        <th scope="col" class="total_style" mat-sort-header="total"> TOTAL </th>
+        <th scope="col" class="easy_style" mat-sort-header="easy"> EASY</th>
+        <th scope="col" class="medium_style" mat-sort-header="medium"> MEDIUM</th>
+        <th scope="col" class="hard_style" mat-sort-header="hard"> HARD</th>
+
+
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      <tr class="column" *ngFor="let category_name of table_sort ">
+
+        <td (click)="total_Category_Question(category_name.value,category_name.count)" id="t+{{cat.id}}"><b>
+            {{category_name.name}}</b></td>
+        <td (click)="total_Category_Question(category_name.value,category_name.count)" id=t+{{cat.id}}> <b>
+            {{ category_name.total  }} </b></td>
+        <td (click)="categoryWiseQuestions(category_name.value,'E')" #e+ id=e+{{cat.id}} class="e+"> <b>
+            {{ category_name.easy  }} </b></td>
+        <td (click)="categoryWiseQuestions(category_name.value,'M')" id=m+{{cat.id}}> <b>
+            {{ category_name.medium  }} </b></td>
+        <td (click)="categoryWiseQuestions(category_name.value,'H')" id=h+{{cat.id}}> <b>
+            {{ category_name.hard  }} </b></td>
+
+        <!-- <td>{{el.last}}</td>
+      <td>{{el.handle}}</td> 
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+
+<div class="container " >
+    <b class="writers">QUESTION CATEGORY : {{category_hold.length}}</b>
+  <table class="table" id="table" borderless="true" matSort (matSortChange)="sortData($event)"  matSortDisableClear>
+    <thead>
+      <tr class="column">
+        <th scope="col" class="category_style align-middle text-center" mat-sort-header="name" >
+            ALL CATEGORIES
+         </th>
+        <th scope="col" class="total_style align-middle" mat-sort-header="total" > TOTAL </th>
+        <th scope="col" class="easy_style align-middle" mat-sort-header="easy" > EASY</th>
+        <th scope="col" class="medium_style align-middle" mat-sort-header="medium" > MEDIUM</th>
+        <th scope="col" class="hard_style align-middle" mat-sort-header="hard" > HARD</th>
+
+
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      <tr class="column" *ngFor="let category_name of sortedData ">
+
+        <td (click)="total_Category_Question(category_name.name,category_name.count)"  class="letter_spacing left_margin" id="t+{{cat.id}}"><b>
+            {{category_name.name}} </b></td>
+        <td (click)="total_Category_Question(category_name.name,category_name.count)" class="td_center" id=t+{{cat.id}}> 
+            {{ category_name.total  }} </td>
+        <td (click)="categoryWiseQuestions(category_name.name,'E')" class="td_center"  id=e+{{cat.id}} > 
+            {{ category_name.easy  }} </td>
+        <td (click)="categoryWiseQuestions(category_name.name,'M')" class="td_center" id=m+{{cat.id}}> 
+            {{ category_name.medium  }} </td>
+        <td (click)="categoryWiseQuestions(category_name.name,'H')" class="td_center" id=h+{{cat.id}}> 
+            {{ category_name.hard  }} </td>
+
+        <!-- <td>{{el.last}}</td>
+      <td>{{el.handle}}</td> -->
+      </tr>
+    </tbody>
+  </table>
 </div>

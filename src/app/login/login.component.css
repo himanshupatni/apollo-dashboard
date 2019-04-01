@@ -1,0 +1,81 @@
+.container{
+    background-color: white;
+    padding: 50px;
+    border-radius: 30px;
+}
+
+.container:hover{
+    box-shadow: 2px 2px 2px 2px #5a09cf;
+    
+}
+.heading_background {
+    justify-content: center;
+}
+
+.heading_item {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    color: #5a09cf;
+}
+
+.button_background {
+    display: grid;
+    margin-top: 30px;
+
+}
+
+.button_item {
+    background: #5a09cf;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+}
+
+.login_items {
+    margin-top: 30px;
+    border: 1px solid #ccc;
+}
+
+input[type=text],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border: none;
+
+    border-radius: 4px;
+}
+
+input[type=password],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+}
+.col-10{
+    padding: 0px;
+}
+.col-2{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+i:hover{
+    cursor: pointer;
+}
+
+
+.button:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+.button:hover.color-1 {
+    background-image: linear-gradient(to right, #6c10ec, rgb(108, 64, 228), #5030dd, #2b39b6);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}

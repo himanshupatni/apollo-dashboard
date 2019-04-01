@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
+import { GraphQLService} from '../graph-ql.service';
 import gql from 'graphql-tag';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
 
   selector: 'app-list',
@@ -10,10 +12,14 @@ import gql from 'graphql-tag';
 export class ListComponent implements OnInit {
   allQuestions: any //Observable<any>;
   i;
+  last;
+  feed: any[];
+  type: string;
+  itemsPerPage: number = 10;
   currentEditingRow;
   temp = [];
   ques = { questionText: '', optionA: '', optionB: '', optionC: '', optionD: '', correctAnswer: '', questionCategory: { value: '' } };
-  constructor(private apollo: Apollo) { }
+  constructor(private apollo: Apollo, private graphService: GraphQLService,private spinner: NgxSpinnerService) { }
   save(i) {
     this.currentEditingRow = -1;
 
@@ -41,75 +47,151 @@ export class ListComponent implements OnInit {
       this.ngOnInit();
     }
     else {
-      this.allQuestions = this.apollo.watchQuery<any>({
-        query: gql`
-        query {
-  getQuestions(first:7,questionText_Icontains:"${keyword}"){
-    edges
-    {
-      node{
-        questionText
-        optionA
-        optionB
-        optionC
-        optionD
-        difficultyLevel
-        {
-          value
-        }
-        correctAnswer
-        sourceDifficultyLevel
-        questionCategory{
-        value
-        }
-        
-      }
-    }
-    }
-  }
-  `,
-      }).valueChanges.subscribe
-        (result => {
-          console.log(result.data.getQuestions.edges);
+      this.spinner.show();
+      const userAcquisition=gql`  query {
+        getQuestions(first:100,questionText_Icontains:"${keyword}"){
+          edges
+          {
+            node{
+              questionText
+              optionA
+              optionB
+              optionC
+              optionD
+              difficultyLevel
+              {
+                value
+              }
+              correctAnswer
+              sourceDifficultyLevel
+              questionCategory{
+              value
+              }
+              
+            }
+          }
+          }
+        }`;
+      
+      this.graphService.graphQuery(userAcquisition)
+      .then ((result:any)=>{
+        this.spinner.hide();
+        console.log(result.data.getQuestions.edges);
           this.temp = result.data.getQuestions.edges.map((element) => element.node);
           return result.data.getQuestions.edges;
-        })
+      })
+      .catch((err)=>{
+        console.log("ERROR", err);
+        // this.spinner.hide()
+      })
+      
     }
   }
 
   ngOnInit() {
-    this.allQuestions = this.apollo.watchQuery<any>({
-      query: gql`
-        query {
-  getQuestions(first:10,sportsType_GameType:"gk"){
-    edges
-    {
-      node{
-        questionText
-        optionA
-        optionB
-        optionC
-        optionD
-        correctAnswer
-        difficultyLevel
-        {
-          value
-        }
-        sourceDifficultyLevel
-        questionCategory{
-          value
-        }        
-      }
-    }
-    }
-}
-`,
-    }).valueChanges.subscribe
-      (result => {
-        console.log(result.data.getQuestions.edges);
-        this.temp = result.data.getQuestions.edges.map((element) => element.node);
-        return result.data.getQuestions.edges;
-      })
-  }
 
+this.graphQL();
+   
+  }
+   
+  graphQL()
+  {
+    this.spinner.show();
+
+    const userAcquisition=gql`  query {
+      getQuestions(first:50,sportsType_GameType:"gk"){
+        edges
+        {
+          node{
+            questionText
+            optionA
+            optionB
+            optionC
+            optionD
+            correctAnswer
+            difficultyLevel
+            {
+              value
+            }
+            sourceDifficultyLevel
+            questionCategory{
+              value
+            }        
+          }
+          cursor
+        }
+        }
+      }`;
+    
+    this.graphService.graphQuery(userAcquisition)
+    .then ((result:any)=>{
+      this.spinner.hide();
+      
+      this.temp = result.data.getQuestions.edges.map((element) => element.node);
+         
+      this.last=result.data.getQuestions.edges.map((element)=>element.cursor);
+     
+      return result.data.getQuestions.edges;
+    })
+    .catch((err)=>{
+      console.log("ERROR", err);
+      // this.spinner.hide()
+    })
+
+
+    // asdasd
+
+  }
+  
+  next()
+  {
+    this.spinner.show();
+
+    const userAcquisition=gql`  query {
+      getQuestions(first:50,sportsType_GameType:"gk", after:"${this.last}"){
+        edges
+        {
+          node{
+            questionText
+            optionA
+            optionB
+            optionC
+            optionD
+            correctAnswer
+            sourceDifficultyLevel
+            difficultyLevel
+            {
+              value
+            }
+            questionCategory{
+              value
+            }        
+          }
+          cursor
+        }
+        }
+      }`;
+    
+    this.graphService.graphQuery(userAcquisition)
+    .then ((result:any)=>{
+      this.spinner.hide();
+
+      console.log(result.data.getQuestions.edges);
+      this.temp = result.data.getQuestions.edges.map((element) => element.node);
+      
+      this.last=result.data.getQuestions.edges.map((element)=>element.cursor);
+     
+      console.log(this.last[this.last.length -1]);
+      // this.page=1;
+      return result.data.getQuestions.edges;
+     
+    })
+    .catch((err)=>{
+      console.log("ERROR", err);
+      // this.spinner.hide()
+    })
+
+    
+
+  }
 }

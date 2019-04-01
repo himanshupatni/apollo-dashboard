@@ -6,8 +6,16 @@
 
       <div class="card-body text-center text-light" (click)="totalQuestion()">
 
-        <p class="card-text"><b> TOTAL QUESTIONS </b></p>
-        <h3>{{totalQuestions}}</h3>
+        <div class="row">
+          <div class="col-9 ">
+            <p class="card-text"><b class="top_margin"> TOTAL QUESTIONS </b></p>
+            <p class="heading_count"><b> {{totalQuestions | questionTotal : easyQuestions : mediumQuestions : hardQuestions}} </b></p>
+          </div>
+          <div class="col-3">
+            <img src="assets/ic_arrow.svg" alt="" class="margin" width="20px" height="20px">
+          </div>
+        </div>
+        
 
 
       </div>
@@ -20,11 +28,11 @@
       <div class="card-body text-center text-light" (click)="reviewQuestion()">
         <div class="row">
           <div class="col-9 ">
-            <p class="card-text"><b> IN REVIEW </b></p>
-            <h3>1200</h3>
+            <p class="card-text"><b class="top_margin"> IN REVIEW </b></p>
+            <p class="heading_count"><b>1200</b></p>
           </div>
           <div class="col-3">
-            <img src="assets/ic_arrow.svg" alt="" width="20px" height="20px">
+            <img src="assets/ic_arrow.svg" class="margin" alt="" width="20px" height="20px">
           </div>
         </div>
       </div>
@@ -32,14 +40,14 @@
 
     <div class="card easy">
 
-      <div class="card-body text-center text-light" (click)="Question('E')">
+      <div class="card-body text-center text-light" (click)="categoryQuestion('E')">
         <div class="row">
           <div class="col-9">
-            <p class="card-text"><b> EASY</b></p>
-            <h3>{{easyQuestions}}</h3>
+            <p class="card-text"><b class="top_margin"> EASY QUESTIONS</b></p>
+            <p class="heading_count"><b>{{easyQuestions}}</b></p>
           </div>
           <div class="col-3">
-            <img src="assets/ic_arrow.svg" alt="" width="20px" height="20px">
+            <img src="assets/ic_arrow.svg" class="margin" alt="" width="20px" height="20px">
           </div>
         </div>
       </div>
@@ -48,14 +56,14 @@
 
     <div class="card  medium">
 
-      <div class="card-body text-center text-light" (click)="Question('M')">
+      <div class="card-body text-center text-light" (click)="categoryQuestion('M')">
         <div class="row">
           <div class="col-9">
-            <p class="card-text"><b>MEDIUM</b> </p>
-            <h3>{{mediumQuestions}}</h3>
+            <p class="card-text"><b class="top_margin">MED. QUESTIONS</b> </p>
+            <p class="heading_count"><b>{{mediumQuestions}}</b></p>
           </div>
           <div class="col-3">
-            <img src="assets/ic_arrow.svg" alt="" width="20px" height="20px">
+            <img src="assets/ic_arrow.svg" alt="" class="margin" width="20px" height="20px">
           </div>
         </div>
       </div>
@@ -64,14 +72,14 @@
 
     <div class="card hard ">
 
-      <div class="card-body text-center text-light" (click)="Question('H')">
+      <div class="card-body text-center text-light" (click)="categoryQuestion('H')">
         <div class="row">
           <div class="col-9">
-            <p class="card-text"><b> HARD</b></p>
-            <h3>{{hardQuestions}}</h3>
+            <p class="card-text"><b class="top_margin"> HARD QUESTIONS</b></p>
+            <p class="heading_count"><b>{{hardQuestions}}</b></p>
           </div>
           <div class="col-3">
-            <img src="assets/ic_arrow.svg" alt="" width="20px" height="20px">
+            <img src="assets/ic_arrow.svg" alt="" class="margin" width="20px" height="20px">
           </div>
         </div>
       </div>

@@ -1,103 +1,84 @@
-
- <app-home-page></app-home-page>
-<!--  
- <table class="table table-striped w-auto">
-  <thead class="thead-dark">
-    <tr class="table-info">
-      <th  scope="col"><b>QUESTION TEXT</b></th>
-      <th scope="col"><b>A</b></th>
-      <th scope="col"><b>B</b></th>
-      <th scope="col"><b>C</b></th>
-      <th scope="col"><b>D</b></th>
-      <th scope="col"><b>CORRECT</b></th>   
-      <th scope="col"><b>CATEGORY</b></th>
-      <th scope="col"><b>OPTIONS</b></th>
-      <!-- <th scope="col"><b>DIFFICULTY LEVEL</b></th> 
-      
-    </tr>
-  </thead>
-  <tbody>
-
-    <tr  *ngFor="let all of temp; let i = index" [attr.data-index]="i"  > 
-       
-      <td  id="{{ 'questionText' +i}}"  contentEditable='{{currentEditingRow==i}}'> {{all.questionText}} </td>
-      <td id="{{ 'optionA' + i }}" contentEditable='{{currentEditingRow==i}}'>{{all.optionA}}</td>
-      <td  id="{{ 'optionB' + i }}" contentEditable='{{currentEditingRow==i}}'>{{all.optionB}}</td>
-      <td  id="{{ 'optionC' + i }}" contentEditable='{{currentEditingRow==i}}'>{{all.optionC}}</td>
-      <td  id="{{ 'optionD' + i }}" contentEditable='{{currentEditingRow==i}}'>{{all.optionD}}</td>
-      <td  id="{{ 'correctAnswer' + i}}"  contentEditable='{{currentEditingRow==i}}'>{{all.correctAnswer}}</td> 
-      <td  id="{{ 'questionCategory' + i }}"contentEditable='{{currentEditingRow==i}}'>{{all.questionCategory.value}}</td> 
-      
-      <td>
-          <button  (click)="edit(i)" ><b>EDIT</b></button>
-          <button  (click)="save(i)"><b>SAVE</b></button>
-          <button  (click)="delete(i)"><b>DELETE</b></button>
-
-        </td>
-        <!-- <td  id="{{ 'questionDifficulty' + i }}"contentEditable='{{currentEditingRow==i}}'>{{all.difficultyLevel.value}}</td>  
-        </tr>
-   
-    
-  </tbody>
-
-</table> --> 
-
+<app-home-page></app-home-page>
 <div class="container main_container">
-    <input class="form-control" type="text" placeholder="Type the Number Of questions" #keyword
-    (keyup)="Search(keyword.value)" >
-    <p> {{allquestions}}</p>
-   
+    <div class="row">
+      <div class="col-10">
+        <input class="form-control" type="text" placeholder="Search Question Here....." #keyword
+        (keyup.enter)="Search(keyword.value)">
+        
+    </div>
+  
+    <div class="col-1 padding_right">
+        <i class="fa fa-search" (click)="Search(keyword.value)" width="30px" height="30px"></i>
+    </div>
+    <div class="col-1">
+      <button class="btn " (click)="next()">Next</button>
+    </div>
+      </div>
+  <p> {{allquestions}}</p>
   <div class="row space" *ngFor="let all of temp">
-    <div class="col-2 take_margin">
-<img src="assets/ic_image.svg" alt="No Image Found">
+    <div class="col-2 take_margin center_img">
+      <img src="assets/ic_image.svg" height="100px" width="100px" alt="No Image Found">
     </div>
     <div class="col-10 take_margin">
-<div class="row">
-<div class="col-6">
-    <p><img src="assets/ic_image.svg" alt="" height="20px" width="20px">
-Question Link</p>
-</div>
-<div class="col-3">
-<p><img src="assets/ic_category.svg" alt="" height="20px" width="20px">{{all.questionCategory.value}}</p> 
-</div>
-
-<div class="col-2">
-<div class="row">
-    <div class="col-8">
-<img src={{edit_save}} alt="not-found" id="edit-save" height="20px" width="20px"><!-- {{all.difficultyLevel.value}} -->
-</div>
-  <div class="col-4">
-<img src="assets/nikh.JPG" class="profile_picture" alt="not-found" id="edit-save" height="20px" width="20px">
-</div>
-</div>
-
-  </div>
-</div>
-<div class="row">
-<div class="col">
-<h4>{{all.questionText}}</h4>
-</div>
-</div>
-<div class="row take_margin">
+        <div class="row">
+          <div class="col-6">
+            <p><img src="assets/ic_image.svg" alt="" class="margin_5" height="20px" width="20px"><b
+                class="gray_text">Question Link</b></p>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-8">
+                <img src="assets/ic_category.svg" class="margin_5" alt=" " height="20px" width="20px"><b class="gray_text"
+                  id="{{ 'questionText' +i}}" (click)="edit(i)"
+                  contentEditable='{{currentEditingRow==i}}'>{{all.questionCategory.value}}
+                </b>
+              </div>
+              <div class="col-2 align_together">
   
-<div class="col-3 option " [ngClass]="{ 'correct_option': all.correctAnswer === 'option_a'}">
-<p class="center_value"  >{{all.optionA}}</p>
+                <img src="assets/{{all.difficultyLevel.value}}.svg" alt="not-found" id="edit-save" height="20px"
+                  width="20px">
+              </div>
+              <div class="col-2 align_together">
+                <img src="assets/nikh.JPG" class="profile_picture" alt="not-found" id="edit-save" height="20px"
+                  width="20px">
+              </div>
+            </div>
+          </div>
+  
+  
+        </div>
+  
+        <div class="row">
+          <div class="col">
+            <p class="question_font_size" id="{{ 'questionText' +i}}" (click)="edit(i)"
+              contentEditable='{{currentEditingRow==i}}'>
+              {{all.questionText}}</p>
+          </div>
+        </div>
+        <div class="row take_margin">
+  
+          <div class="col-2 option " [ngClass]="{ 'correct_option': all.correctAnswer === 'option_a'}">
+            <p class="center_value" id="{{ 'optionA' + i }}" (click)="edit(i)" contentEditable='{{currentEditingRow==i}}'>
+              <b> {{all.optionA}} </b></p>
+          </div>
+  
+          <div class="col-2 option offset-1" [ngClass]="{ 'correct_option': all.correctAnswer === 'option_b'}">
+            <p class="center_value" id="{{ 'optionB' + i }}" (click)="edit(i)" contentEditable='{{currentEditingRow==i}}'>
+              <b> {{all.optionB}} </b></p>
+          </div>
+  
+          <div class="col-2 option offset-1" [ngClass]="{ 'correct_option': all.correctAnswer === 'option_c'}">
+            <p class="center_value" id="{{ 'optionC' + i }}" (click)="edit(i)" contentEditable='{{currentEditingRow==i}}'>
+              <b>{{all.optionC}}</b></p>
+          </div>
+  
+          <div class="col-2 option offset-1" [ngClass]="{ 'correct_option': all.correctAnswer === 'option_d'}">
+            <p class="center_value" id="{{ 'optionD' + i }}" (click)="edit(i)" contentEditable='{{currentEditingRow==i}}'>
+              <b>{{all.optionD}} </b></p>
+          </div>
+        </div>
+      </div>
+  </div>
 </div>
 
-<div class="col-3 option" [ngClass]="{ 'correct_option': all.correctAnswer === 'option_b'}">
-    <p class="center_value" >{{all.optionB}}</p>
-  </div>
-  
-<div class="col-3 option" [ngClass]="{ 'correct_option': all.correctAnswer === 'option_c'}">
-    <p class="center_value" >{{all.optionC}}</p>
-  </div>
-  
-<div class="col-3 option"  [ngClass]="{ 'correct_option': all.correctAnswer === 'option_d'}">
-    <p class="center_value">{{all.optionD}}</p>
-  </div>
-</div>
-    </div>
-
-  </div>
-</div>
 <router-outlet></router-outlet>

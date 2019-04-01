@@ -2,8 +2,13 @@
 {
   padding-bottom: 0px!important;
   padding-left: 0px;
+  padding-right: 15px;
   padding-top: 0px;
   font-family: 'Roboto Condensed';
+}
+.center_align{
+  display: flex;
+  align-items: center;
 }
   .col-8
   {
@@ -30,6 +35,7 @@
   
 .input_width
 {
+  margin-left: 10px;
   width: 100%;
   border: 0px;
   font-size: 10px;

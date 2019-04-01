@@ -1,8 +1,22 @@
+<!-- 
+1 <app-add-question #add_question></app-add-question> 
 
-<app-home-page></app-home-page>
-<!-- <app-add-question #add_question></app-add-question> -->
+1 <app-category-data-table></app-category-data-table> 
+ -->
 
-<app-questions></app-questions>
+<div *ngIf="graphService.shouldLogin">
+    <app-home-page></app-home-page>
+    <app-questions></app-questions>
+    <app-question-category></app-question-category>
 
-<app-question-category></app-question-category>
-<app-writers></app-writers>
+    <app-writers></app-writers>
+
+</div>
+
+    <div *ngIf="!graphService.shouldLogin" class="align_center">
+
+
+        <app-login></app-login>
+  
+
+</div>

@@ -43,62 +43,97 @@
 </table> -->
 
 <div class="container main_container">
-    <input class="form-control" type="text" placeholder="Search Question Here....." #keyword
-    (keyup)="Search(keyword.value)">
+    <div class="row">
+        <div class="col-10">
+            <input class="form-control" type="text" placeholder="Search Question Here....." #keyword
+            (keyup.enter)="Search(keyword.value)">
+            
+        </div>
+
+        <div class="col-1 padding_right">
+            <i class="fa fa-search" (click)="Search(keyword.value)" width="25px" height="25px"></i>
+        </div>
+        <div class="col-1">
+          <button class="btn " (click)="next()">Next</button>
+        </div>
+      </div>
   <p> {{allquestions}}</p>
   <div class="row space" *ngFor="let all of temp">
-    <div class="col-2 take_margin">
-      <img src="assets/ic_image.svg" alt="No Image Found">
+    <div class="col-2 take_margin center_img">
+      <img src="assets/ic_image.svg" alt="No Image Found" height="100px" width="100px">
     </div>
     <div class="col-10 take_margin">
-      <div class="row">
-        <div class="col-6">
-          <p><img src="assets/ic_image.svg" alt="" height="20px" width="20px">Question Link</p>
-        </div>
-        <div class="col-3">
-          <img src="assets/ic_category.svg" alt=" " height="20px" width="20px"><b> {{all.questionCategory.value}}</b>
-        </div>
-
-        <div class="col-2">
-          <div class="row">
-            <div class="col-8">
-              <img src="assets/{{all.difficultyLevel.value}}.svg" alt="not-found" id="edit-save" height="20px"
-                width="20px">
-            </div>
-            <div class="col-4">
-              <img src="assets/nikh.JPG" class="profile_picture" alt="not-found" id="edit-save" height="20px"
-                width="20px">
+        <div class="row">
+          <div class="col-6">
+            <p class="align_center"><img src="assets/ic_image.svg" alt="" class="margin_5" height="20px" width="20px"><b
+                class="gray_text">Question Link</b></p>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-8 align_center">
+                <img src="assets/ic_category.svg" class="margin_5" alt=" " height="20px" width="20px"><b class="gray_text"
+                  id="{{ 'questionText' +i}}" (click)="edit(i)"
+                  contentEditable='{{currentEditingRow==i}}'>{{all.questionCategory.value}}
+                </b>
+              </div>
+              <div class="col-2 align_together">
+  
+                <img src="assets/{{all.difficultyLevel.value}}.svg" alt="not-found" id="edit-save" height="25px"
+                  width="25px">
+              </div>
+              <div class="col-2 align_together">
+                <img src="assets/nikh.JPG" class="profile_picture" alt="not-found" id="edit-save" height="25px"
+                  width="25px">
+              </div>
             </div>
           </div>
-
+  
+  
         </div>
+  
+        <div class="row">
+          <div class="col">
+            <p class="question_font_size" id="{{ 'questionText' +i}}" (click)="edit(i)"
+              contentEditable='{{currentEditingRow==i}}'>
+              {{all.questionText}}</p>
+          </div>
+        </div>
+        <div class="row take_margin">
+
+            <div class="col-3  " >
+              <div class="option" [ngClass]="{ 'correct_option': all.correctAnswer === 'option_a'}">     
+                <p class="center_value" id="{{ 'optionA' + i }}" (click)="edit(i)" contentEditable='{{currentEditingRow==i}}'>
+                <b> {{all.optionA}} </b></p>
+              </div>
+    
+            </div>
+    
+            <div class="col-3  " >
+              <div class="option" [ngClass]="{ 'correct_option': all.correctAnswer === 'option_b'}">
+              <p class="center_value" id="{{ 'optionB' + i }}" (click)="edit(i)" contentEditable='{{currentEditingRow==i}}'>
+                <b> {{all.optionB}} </b></p>
+              </div>
+            </div>
+    
+            <div class="col-3  " >
+              <div class="option" [ngClass]="{ 'correct_option': all.correctAnswer === 'option_c'}">
+              <p class="center_value" id="{{ 'optionC' + i }}" (click)="edit(i)" contentEditable='{{currentEditingRow==i}}'>
+                <b>{{all.optionC}}</b></p>
+              </div>
+            </div>
+    
+            <div class="col-3  " >
+              <div class="option" [ngClass]="{ 'correct_option': all.correctAnswer === 'option_d'}">
+              <p class="center_value" id="{{ 'optionD' + i }}" (click)="edit(i)" contentEditable='{{currentEditingRow==i}}'>
+                <b>{{all.optionD}} </b></p>
+            </div>
+          </div>
+          </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <h4>{{all.questionText}}</h4>
-        </div>
-      </div>
-      <div class="row take_margin">
-
-        <div class="col-3 option " [ngClass]="{ 'correct_option': all.correctAnswer === 'option_a'}">
-          <p class="center-value"><b> {{all.optionA}}</b></p>
-        </div>
-
-        <div class="col-3 option" [ngClass]="{ 'correct_option': all.correctAnswer === 'option_b'}">
-          <p class="center-value"><b>{{all.optionB}}</b></p>
-        </div>
-
-        <div class="col-3 option" [ngClass]="{ 'correct_option': all.correctAnswer === 'option_c'}">
-          <p class="center-value"><b>{{all.optionC}}</b></p>
-        </div>
-
-        <div class="col-3 option" [ngClass]="{ 'correct_option': all.correctAnswer === 'option_d'}">
-          <p class="center-value"><b>{{all.optionD}}</b></p>
-        </div>
-      </div>
-    </div>
-
+    
   </div>
+  <!-- <ngb-pagination [collectionSize]="150" [(page)]="currentPage" size="lg"></ngb-pagination> -->
+  
 </div>
 
 <router-outlet></router-outlet>

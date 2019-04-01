@@ -1,13 +1,39 @@
-.total
-{ font-family: 'Roboto Condensed', sans-serif;
+.total{ 
+    height: 14vh;
+
+    font-family: 'Roboto Condensed', sans-serif;
     background-color: #5a0bcf;
 }
 p{
-    font-size: 15px;
+    font-size: 12px;
+}
+.heading_count
+{
+    /* margin-left: 8px;
+    margin-top: 5px; */
+    font-size: 40px;
+}
+h3 {
+    display: flex;
+    margin-left: 22px;
+
+}
+.top_margin{
+    /* margin-left: 8px; */
+    /* margin-top: 5px; */
+    margin-top:5px;
+}
+b{
+    display: flex;
+    margin-top: -8px;
+    letter-spacing: 2px;
+    margin-left: 25px;
+    
 }
  .card-body
 {
-    padding: 5px;
+    
+    padding: 10px;
     border: 0px;
 }
 .total:active{
@@ -15,22 +41,35 @@ background-color: #410d87;
 }
 .container{
     margin-top: 25px;
+    padding: 0px;
     
 }
-.hard_questions
+/* .hard_questions
 {
     font-family: 'Roboto Condensed', sans-serif;
   display: flex;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
 
-}
+/* } */ 
 .col-3
 {
     display: flex;
+    height: 13vh;
     justify-content: flex-end;
-    
+    /* margin-right:3px; */
     align-items: center;
+    margin-top: -5px;
 }
+.margin{
+    margin-right:5px;
+}
+
+.col-9{
+    padding: 0px;
+    margin-top: 2px;
+    
+}
+
 /* img{
    
   vertical-align: middle;
@@ -45,6 +84,8 @@ background-color: #410d87;
 {
     font-family: 'Roboto Condensed', sans-serif;
     background-color: #d1d1d1;
+    height: 14vh;
+
  
 }
 .review:active{
@@ -52,6 +93,7 @@ background-color: #410d87;
 }
 .easy
 {
+    height: 14vh;
     font-family: 'Roboto Condensed', sans-serif;
     background-color: #46df66;
 }
@@ -60,14 +102,16 @@ background-color: #410d87;
 }
 .medium
 {
+    height: 14vh;
     font-family: 'Roboto Condensed', sans-serif;
-    background-color: #e7da48;
+    background-color: #f1e552;
 }
 .medium:active{
     background-color: #efde34;
 }
 .hard
 {
+    height: 14vh;
     font-family: 'Roboto Condensed', sans-serif;
     background-color: #ff5e48;
   
@@ -81,7 +125,7 @@ background-color: #410d87;
 }
 .card-text
 {
-    font-size: 15px;
+    font-size: 12px;
     margin-bottom: 0px;
 }
 h3{

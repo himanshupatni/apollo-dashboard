@@ -1,0 +1,21 @@
+
+    <div class="container"> 
+         <div class="row heading_background">
+        <h1 class="heading_item">QUNAMI QUESTION BANK</h1>
+    </div>
+    <div class="row login_items">
+        <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]="name" required>
+    </div>
+    <div class="row login_items">
+      <div class="col-10">
+          <input type="{{type}}" #pas placeholder="Enter Password" name="psw" [(ngModel)]="password" required (keyup.enter)="login()">
+
+      </div>
+<div class="col-2">
+      <i class="fas fa-eye" (click)="toggleShow()" ></i>
+    </div>
+    </div>
+    <div class="row  button_background">
+        <button class="button btn button_item color-1"  (click)="login()">Login</button>
+    </div>
+  </div>

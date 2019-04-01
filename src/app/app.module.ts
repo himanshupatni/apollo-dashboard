@@ -15,6 +15,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap';
 import { AddQuestionComponent,NgbdModalContent } from './add-question/add-question.component';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { HttpHeaders } from '@angular/common/http';
 // import { ApolloClient } from 'apollo-client';
 // import { setContext} from 'apollo-link-context';
@@ -23,7 +24,18 @@ import {ApolloLink} from 'apollo-link';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { QuestionTypeTableComponent } from './question-type-table/question-type-table.component';
 import { TotalCategoryQuestionsComponent } from './total-category-questions/total-category-questions.component';
-import { DifficultyWiseCategoryQuestionsComponent } from './difficulty-wise-category-questions/difficulty-wise-category-questions.component'; //concat
+import { DifficultyWiseCategoryQuestionsComponent } from './difficulty-wise-category-questions/difficulty-wise-category-questions.component';
+import { RemoveSpacePipe } from './remove-space.pipe';
+import { QuestionTotalPipe } from './question-total.pipe';
+import { OrderByPipePipe } from './order-by-pipe.pipe';
+import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material'; //concat
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { SortPipe } from './sort.pipe';
+import {GraphQLService} from './graph-ql.service';
+import { LoginComponent } from './login/login.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
+//import {MatTableModule} from '@angular/material/table';
 const routes: Routes = [
   { path:'' ,component: DashboardComponent},
   { path: 'app-list', component: ListComponent },
@@ -35,6 +47,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    
     ListComponent,
     HomePageComponent,
     QuestionsComponent,
@@ -45,21 +58,34 @@ const routes: Routes = [
     DashboardComponent,
     QuestionTypeTableComponent,
     TotalCategoryQuestionsComponent,
-    DifficultyWiseCategoryQuestionsComponent
+    DifficultyWiseCategoryQuestionsComponent,
+    RemoveSpacePipe,
+    QuestionTotalPipe,
+    OrderByPipePipe,
+    SortPipe,
+    LoginComponent
+    
     
   ],
   imports: [
     BsDatepickerModule.forRoot(),
+    NgxSpinnerModule,
     BrowserModule,
+    MDBBootstrapModule.forRoot(),
     RouterModule.forRoot(routes),
      NgbModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
     ApolloModule,
-    HttpLinkModule
+    HttpLinkModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+   // MatTableModule
   ],
   exports:[RouterModule],
-  providers: [NgbActiveModal],
+  providers: [NgbActiveModal, GraphQLService  ],
   entryComponents: [NgbdModalContent],
   bootstrap: [AppComponent]
 })
